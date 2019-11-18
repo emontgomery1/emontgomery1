@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Integrations Hub Step-by-Step Walkthrough</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">JORNAYA</span><span class="text-bold"> HELP</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Step-by-Step Guide to Integration Setup</li>
+                </ol>
+                <div class="top-search-box">
+                   <form class="form-inline search-form justify-content-center" action="" method="get">
+
+                  <input type="text" placeholder="Search..." name="search" class="form-control search-input">
+                  <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+              </form>
+                </div>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"> Step-by-Step Guide to Integration Setup</h1>
+                    <div class="meta"><i class="far fa-clock"></i> Last updated: November 14th, 2019</div>
+                </div><!--//doc-header-->
+                <div class="doc-body row">
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+                            <section id="overview-section" class="doc-section">
+                                <h2 class="section-title">Integrations Overview</h2>
+                                <p> The Integrations Hub gives major-life purchase marketers the ability to automate the connection between Jornaya’s Activate data and marketing technology platforms. It is now easy to quickly activate and optimize campaigns using this data, without the need for technical resource investment.
+                                </p>
+                                <div id="requirements"  class="section-block">
+                                    <h3 class="block-title">Requirements</h3>
+                                    <p> There are 3 requirements for setting up an integration:</p>
+                                      <ol type="1">  <li><b>Platform Authentication</b> - the Integrations Hub needs access to your platform and your Jornaya SFTP account in order to get and/or post data.  We would suggest leveraging a generic user account (i.e. integrationuser@companyname.com) vs. a personal user account so multiple users within your organization can access and maintain the integrations.
+</li>
+                                        <li><b>Common Identifier</b> - The identifier used in the “recordid” column of the Activate monitoring file needs to be available in the platform being integrated with Activate.</li>
+                                        <li><b>Data Mappings</b> - Fields within your platform will need to be mapped to Jornaya schema, such as our monitoring file schema for posting data into Jornaya and the journeys we are posting into your platform.
+</li>
+                                      </ol> </p>
+                                  </div><!--//section-block-->
+                                <div id="integration-types"  class="section-block">
+                                    <h3 class="block-title">Integration Types</h3>
+                                    <p> Regardless of the platform, there are 2 primary ways to integrate with Jornaya Activate
+                                    </p>
+                                    <ol type="1"> <li> <a class="nav-link scrollto" href="#DeliverMonitoringData">Deliver Monitoring Data to Jornaya</a></li> <li> <a class="nav-link scrollto" href="#DeliverJornayaSignal">Deliver Jornaya Signal to Your Platform</a></li>
+                                    </ol>
+                                    <div id="DeliverMonitoringData" class="section-block">
+                                      <h3 class= "block-title">Deliver Monitoring Data to Jornaya</h3>
+                                      <p> This type of integration enables major-life purchase marketers to easily post their portfolio data into Jornaya Activate to monitor for in-market activity.  Within the Integrations Hub, users can map the identifiers from their marketing platform to the required Jornaya monitoring fields. </p>
+                                      <p>The Integrations Hub also has the ability to hash identifiers being sent to Jornaya within the monitoring file, specifically phone numbers and email addresses.  These identifiers will be hashed using the SHA256 algorithm. </p>
+                                      <p>This type of integration will only run once.  To post updated monitoring data to Jornaya,  simply delete the current setup and create a new setup. </p>
+                                    </div>
+
+                                    <div id="DeliverJornayaSignal" class="section-block">
+                                      <h3 class= "block-title">Deliver Jornaya Signal to Your Platform</h3>
+                                      <p>This type of integration automatically ingests Jornaya in-market signal data into any platform that can use the data for marketing outreach.  Within the Integrations Hub, you will need to map each Journey (i.e. Mortgage - Purchase, Insurance - Auto, etc.) to the field in your platform where that in-market signal value (i.e “Low to High”) should live. </p>
+                                      <p>These integrations are setup to run daily.</p>
+                                    </div>
+
+
+                                </div><!--//section-block-->
+                                <div id="available-integrations"  class="section-block">
+                                    <h3 class="block-title">Available Integrations</h3>
+                                    <p>Today there are hundreds of integrations that can be configured to work with Jornaya Activate. We’ve configured the following integrations to work with Activate already, which you can take advantage of today.</p>
+                                    <p> Deliver Monitoring Data to Jornaya
+                                      <ul style="list-style-type:disc;">
+                                        <li>Salesforce to Jornaya</li>
+                                      </ul></p>
+                                      <p> Deliver Jornaya Signal to Your Platform
+                                        <ul style="list-style-type:disc;"> <li>Jornaya to Velocify</li> <li>Jornaya to Salesforce</li>   <li>Jornaya to Marketo</li>   <li>Jornaya to Client SFTP</li>
+                                        </ul></p>
+                                        <p> Of the hundreds of integrations that are available, these are some that might be most applicable and can be configured on an as-needed basis by requesting from your Client Success Manager.
+                                          <ul style="list-style-type:disc;"> <li>SendGrid</li> <li>HubSpot</li> <li>Segment</li> <li>Eloqua</li> <li>Customer.io</li><li>Airship</li><li>SAP</li><li>ActiveCampaign</li><li>Microsoft Dynamics 365</li><li>Mailchimp</li>
+                                          </ul></p>
+                                          <p> <b> Requesting New Integrations </b> </p>
+                                          <p> We are always looking to add integrations to our Integrations Hub, so please let your Client Success Manager know which platforms would be most helpful for you.
+                                          </p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+
+                            <section id="getting-started-section" class="doc-section">
+                                <h2 class="section-title">Getting Started</h2>
+                                <div id="prerequisites"  class="section-block">
+                                    <h3 class="block-title">Prerequisites</h3>
+                                    <p>All of our Integrations either pull monitoring data from fields in your platform or post Activate signal to fields in your platform.  Before moving forward with setting up an integration, please make sure you know  which fields you plan to pull data from and/or have created fields where the Activate data should end up within your platform(s).
+                                    </p>
+                                  </div><!--//section-block-->
+                                <div id="accessing-hub"  class="section-block">
+                                    <h3 class="block-title">Accessing the Integrations Hub</h3>
+                                    <p> If you are interested in using the Integrations Hub, let your Jornaya Client Success Manager (CSM) know which integration you’d like to use. If the integration is available, you will receive an email to create your Integrations Hub account.</p>
+                                    <p> 1. Click on the link in the email and login using the provided username & temporary password.You will be prompted to change the password; save this password as you will need this to access the integrations hub in the future
+                                      <ul style="list-style-type:disc;"> <li>Minimum 8 characters</li> <li>At least one capital letter</li>   <li>At least one lower case letter</li>   <li>At least one numeric value</li> <li>At least one special character</li>
+                                      </ul></p>
+                                      <p> 2. Login with the updated password. </p>
+                                      <p> 3. Select the integration you'd like to begin setting up. </p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+
+                          <section id="velocify-section" class="doc-section">
+                              <h2 class="section-title">Jornaya Signal to Velocify</h2>
+                              <div id="velocify-overview"  class="section-block">
+                                  <h3 class="block-title">Velocify Integration Overview</h3>
+
+                                    <p> The integration posts in-market signal to mapped fields on the user form in Velocify. The integration can also:</p>
+                                      <ul style= "list-style-type:disc;">
+                                        <li>Post last updated timestamps to mapped fields on the user form in Velocify</li>
+                                        <li>Map in-market signal fields & value combinations to actions created in Velocify (i.e. Insurance-General: High triggers an in-market insurance action)</li></ul>
+
+                                    <p> Velocify Integration Details:
+                                    <ul style="list-style-type:disc;"> <li>Users will authenticate with their Jornaya SFTP account & Velocify Account.</li>
+                                      <li>To use this integration, the recordid in your Activate monitoring file <b>must</b> contain only Velocify lead ids.</li>   <li>Once the integration is setup, users must click the yellow play button, which will enable the integration and display of a green checkmark.</li> <li>The first run of the integration will start 5 minutes after the integration is enabled and will post the file from that same day.</li>
+                                      <li> After the first run, the integration will post files each morning when the signal file is available.</li>
+                                    </ul> </p>
+                                </div><!--//section-block-->
+                              <div id="velocify-authentication"  class="section-block">
+                                  <h3 class="block-title">Authentication</h3>
+                                  <p> <ol type= "1"> <li> Navigate to the <a HREF="https://integrations-hub.jornaya.com/">Integrations Hub homepage</a> and login with your credentials </li>
+                                    <li>   Click the Blue Arrow next to the “Deliver Signal to Velocify” option
+                                    <div class="screenshot-holder">
+                                        <img class="img-fluid" src="assets/images/demo/integrations-velocify.png" alt="screenshot" /></a>
+                                    </div> </li>
+                                    <li> Authenticate with your Jornaya SFTP Account. (This will be a popup window.)</li>
+                                    <ul style="list-style-type:disc;"> <li>Enter any name you'd like for the Authentication name and select SFTP in the dropdown.
+                                      <div class="screenshot-holder">
+                                          <img class="img-fluid" src="assets/images/demo/AuthenticationName.png" alt="screenshot" /></a>
+                                      </div> </li>
+                                      <li>Enter sftp.jornaya.com for the host and the username and password provided via email by Jornaya Support. (Username and password are case sensitive.)
+                                        <div class="screenshot-holder">
+                                            <img class="img-fluid" src="assets/images/demo/SFTPinfo.png" alt="screenshot" /></a>
+                                        </div> </li>
+                                        <li>Leave Private Key and Passphrase blank.
+                                          <div class="screenshot-holder">
+                                              <img class="img-fluid" src="assets/images/demo/empty.png" alt="screenshot" /></a>
+                                          </div> </li>
+                                          <li>Port number should always be 22 and cipher should be left as default.
+                                            <div class="screenshot-holder">
+                                                <img class="img-fluid" src="assets/images/demo/portcipher.png" alt="screenshot" /></a>
+                                            </div> </li> </ul>
+                                            <li>Authenticate with your Velocify account. </li> </ol> </p>
+                                </div><!--//section-block-->
+                              <div id="velocify-mapping"  class="section-block">
+                                  <h3 class="block-title">Field Mapping</h3>
+                                  <p> <ol start="5"> <li>   Enter your Jornaya SFTP username again </li>
+                                    <li>   In the Jornaya Field to Velocify Field Mapping screen, map the Jornaya journeys you’ve purchased to fields on the Velocify customer record. (These fields have type ahead capability). </li>
+                                    <li>  In the Velocify field to Velocify action mapping screen, you can optionally setup a mapping for a journey/signal combination to an action with the same name. (The fields have type ahead, except the value field). For example:
+                                      <ul style="list-style-type:disc;"> <li>  Velocify field = Mortgage - Purchase </li> <li>  Value = High </li> <li>  Velocify Action: In-Market Signal Mortgage - Purchase = High </li> </ul>
+                                    <li>   Select Finish. <ol> </p>
+                              </div><!--//section-block-->
+                              <div id="velocify-enable"  class="section-block">
+                                  <h3 class="block-title">Enable</h3>
+                                  <p>   The integration is now setup, but not enabled. If changes need to be made, you will need to click the red trash can icon and walk through the setup again. </p>
+                                    <p> <ol start="9"> <li>By clicking the yellow play button, the integration will be enabled and turn to a green checkmark.  The integration will run 5 minutes after enabling the integration, using today’s Activate dataset. </li>
+                                      <li>To pause the integration, log back into the integration hub, hover over the green checkbox and click the yellow pause icon.</li>
+                                      <li>To change the integration setup, simply delete the  integration instance by clicking the red trash can icon and starting over.</li> </p>
+                              </div><!--//section-block-->
+                          </section><!--//doc-section-->
+
+                          <section id="salesforce1-section" class="doc-section">
+                              <h2 class="section-title">Salesforce Portfolio Data to Jornaya</h2>
+                              <div id="salesforce1-authentication"  class="section-block">
+                                  <h3 class="block-title">Authentication</h3>
+                                </div><!--//section-block-->
+                              <div id="salesforce1-mapping"  class="section-block">
+                                  <h3 class="block-title">Field Mapping</h3>
+                              </div><!--//section-block-->
+                              <div id="salesforce1-enable"  class="section-block">
+                                  <h3 class="block-title">Enable</h3>
+                              </div><!--//section-block-->
+                          </section><!--//doc-section-->
+
+                          <section id="salesforce2-section" class="doc-section">
+                              <h2 class="section-title">Jornaya Signal to Salesforce</h2>
+                              <div id="salesforce2-authentication"  class="section-block">
+                                  <h3 class="block-title">Authentication</h3>
+                                </div><!--//section-block-->
+                              <div id="salesforce2-mapping"  class="section-block">
+                                  <h3 class="block-title">Field Mapping</h3>
+                              </div><!--//section-block-->
+                              <div id="salesforce2-enable"  class="section-block">
+                                  <h3 class="block-title">Enable</h3>
+                              </div><!--//section-block-->
+                          </section><!--//doc-section-->
+
+                          <section id="salesforce3-section" class="doc-section">
+                              <h2 class="section-title">Salesforce Outcome Data to Jornaya</h2>
+                              <div id="salesforce3-authentication"  class="section-block">
+                                  <h3 class="block-title">Authentication</h3>
+                                </div><!--//section-block-->
+                              <div id="salesforce3-mapping"  class="section-block">
+                                  <h3 class="block-title">Field Mapping</h3>
+                              </div><!--//section-block-->
+                              <div id="salesforce3-enable"  class="section-block">
+                                  <h3 class="block-title">Enable</h3>
+                              </div><!--//section-block-->
+                          </section><!--//doc-section-->
+
+                          <section id="marketo-section" class="doc-section">
+                              <h2 class="section-title">Jornaya Signal to Marketo</h2>
+                              <div id="marketo-authentication"  class="section-block">
+                                  <h3 class="block-title">Authentication</h3>
+                                </div><!--//section-block-->
+                              <div id="marketo-mapping"  class="section-block">
+                                  <h3 class="block-title">Field Mapping</h3>
+                              </div><!--//section-block-->
+                              <div id="marketo-enable"  class="section-block">
+                                  <h3 class="block-title">Enable</h3>
+                              </div><!--//section-block-->
+                          </section><!--//doc-section-->
+
+                          <section id="SFTP1-section" class="doc-section">
+                              <h2 class="section-title">Client SFTP Portfolio to Jornaya SFTP</h2>
+                              <div id="SFTP1-authentication"  class="section-block">
+                                  <h3 class="block-title">Authentication</h3>
+                                </div><!--//section-block-->
+                              <div id="SFTP1-mapping"  class="section-block">
+                                  <h3 class="block-title">Field Mapping</h3>
+                              </div><!--//section-block-->
+                              <div id="SFTP1-enable"  class="section-block">
+                                  <h3 class="block-title">Enable</h3>
+                              </div><!--//section-block-->
+                          </section><!--//doc-section-->
+
+                          <section id="SFTP2-section" class="doc-section">
+                              <h2 class="section-title">Jornaya Signal to Client SFTP</h2>
+                              <div id="SFTP2-authentication"  class="section-block">
+                                  <h3 class="block-title">Authentication</h3>
+                                </div><!--//section-block-->
+                              <div id="SFTP2-mapping"  class="section-block">
+                                  <h3 class="block-title">Field Mapping</h3>
+                              </div><!--//section-block-->
+                              <div id="SFTP2-enable"  class="section-block">
+                                  <h3 class="block-title">Enable</h3>
+                              </div><!--//section-block-->
+                          </section><!--//doc-section-->
+
+                          <section id="email-section" class="doc-section">
+                              <h2 class="section-title">Jornaya Signal File to Email</h2>
+                              <div id="email-authentication"  class="section-block">
+                                  <h3 class="block-title">Authentication</h3>
+                                </div><!--//section-block-->
+                              <div id="email-mapping"  class="section-block">
+                                  <h3 class="block-title">Field Mapping</h3>
+                              </div><!--//section-block-->
+                              <div id="email-enable"  class="section-block">
+                                  <h3 class="block-title">Enable</h3>
+                              </div><!--//section-block-->
+                          </section><!--//doc-section-->
+                          <div class="to-top-container"><a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 0;"></span><span class="screen-reader-text">Go to Top</span></a></div>
+
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+
+	                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+	                                <a class="nav-link scrollto" href="#overview-section">Integrations Overview</a>
+                                    <nav class="doc-sub-menu nav flex-column">
+                                        <a class="nav-link scrollto" href="#requirements">Requirements</a>
+                                        <a class="nav-link scrollto" href="#integration-types">Integration Types</a>
+                                        <a class="nav-link scrollto" href="#available-integrations">Available Integrations</a>
+                                    </nav><!--//nav-->
+                                    <a class="nav-link scrollto" href="#getting-started-section">Getting Started</a>
+                                      <nav class="doc-sub-menu nav flex-column">
+                                          <a class="nav-link scrollto" href="#prerequisites">Prerequisites</a>
+                                          <a class="nav-link scrollto" href="#accessing-hub">Accessing the Integrations Hub</a>
+                                      </nav><!--//nav-->
+                                      <a class="nav-link scrollto" href="#velocify-section">Jornaya Signal to Velocify</a>
+                                        <nav class="doc-sub-menu nav flex-column">
+                                            <a class="nav-link scrollto" href="#velocify-authentication">Authentication</a>
+                                            <a class="nav-link scrollto" href="#velocify-mapping">Field Mapping</a>
+                                            <a class="nav-link scrollto" href="#velocify-enable">Enable</a>
+                                        </nav><!--//nav-->
+                                        <a class="nav-link scrollto" href="#salesforce1-section">Salesforce Portfolio Data to Jornaya</a>
+                                          <nav class="doc-sub-menu nav flex-column">
+                                              <a class="nav-link scrollto" href="#salesforce1-authentication">Authentication</a>
+                                              <a class="nav-link scrollto" href="#salesforce1-mapping">Field Mapping</a>
+                                              <a class="nav-link scrollto" href="#salesforce1-enable">Enable</a>
+                                          </nav><!--//nav-->
+                                          <a class="nav-link scrollto" href="#salesforce2-section">Jornaya Signal to Salesforce</a>
+                                            <nav class="doc-sub-menu nav flex-column">
+                                                <a class="nav-link scrollto" href="#salesforce2-authentication">Authentication</a>
+                                                <a class="nav-link scrollto" href="#salesforce2-mapping">Field Mapping</a>
+                                                <a class="nav-link scrollto" href="#salesforce2-enable">Enable</a>
+                                            </nav><!--//nav-->
+                                            <a class="nav-link scrollto" href="#salesforce3-section">Salesforce Outcome Data to Jornaya</a>
+                                              <nav class="doc-sub-menu nav flex-column">
+                                                  <a class="nav-link scrollto" href="#salesforce3-authentication">Authentication</a>
+                                                  <a class="nav-link scrollto" href="#salesforce3-mapping">Field Mapping</a>
+                                                  <a class="nav-link scrollto" href="#salesforce3-enable">Enable</a>
+                                              </nav><!--//nav-->
+                                              <a class="nav-link scrollto" href="#marketo-section">Jornaya Signal to Marketo</a>
+                                                <nav class="doc-sub-menu nav flex-column">
+                                                    <a class="nav-link scrollto" href="#marketo-authentication">Authentication</a>
+                                                    <a class="nav-link scrollto" href="#marketo-mapping">Field Mapping</a>
+                                                    <a class="nav-link scrollto" href="#marketo-enable">Enable</a>
+                                                </nav><!--//nav-->
+                                                <a class="nav-link scrollto" href="#SFTP1-section">Jornaya Signal to Marketo</a>
+                                                  <nav class="doc-sub-menu nav flex-column">
+                                                      <a class="nav-link scrollto" href="#SFTP1-authentication">Authentication</a>
+                                                      <a class="nav-link scrollto" href="#SFTP1-mapping">Field Mapping</a>
+                                                      <a class="nav-link scrollto" href="#SFTP1-enable">Enable</a>
+                                                  </nav><!--//nav-->
+                                                  <a class="nav-link scrollto" href="#SFTP2-section">Jornaya Signal to Marketo</a>
+                                                    <nav class="doc-sub-menu nav flex-column">
+                                                        <a class="nav-link scrollto" href="#SFTP2-authentication">Authentication</a>
+                                                        <a class="nav-link scrollto" href="#SFTP2-mapping">Field Mapping</a>
+                                                        <a class="nav-link scrollto" href="#SFTP2-enable">Enable</a>
+                                                    </nav><!--//nav-->
+                                                    <a class="nav-link scrollto" href="#email-section">Jornaya Signal to Email</a>
+                                                      <nav class="doc-sub-menu nav flex-column">
+                                                          <a class="nav-link scrollto" href="#email-authentication">Authentication</a>
+                                                          <a class="nav-link scrollto" href="#email-mapping">Field Mapping</a>
+                                                          <a class="nav-link scrollto" href="#email-enable">Enable</a>
+                                                      </nav><!--//nav-->
+
+
+                                      </nav><!--//doc-menu-->
+
+                                 </div>
+                             </div><!--//doc-sidebar-->
+                         </div><!--//doc-body-->
+                     </div><!--//container-->
+                 </div><!--//doc-wrapper-->
+
+
+             </div><!--//page-wrapper-->
+
+             <footer id="footer" class="footer text-center">
+               <div class="container">
+                   <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                   <!-- <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers</small> -->
+                   <small class="copyright"><a href="https://www.jornaya.com/terms-and-policies/">Terms and Policies</a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; © 2019 Jornaya | Made with ♥ in Philadelphia, PA	</small>
+               </div><!--//container-->
+             </footer><!--//footer-->
+
+
+             <!-- Main Javascript -->
+             <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+             <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+             <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>
+             <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+             <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+             <script type="text/javascript" src="assets/js/main.js"></script>
+
+         </body>
+         </html>
